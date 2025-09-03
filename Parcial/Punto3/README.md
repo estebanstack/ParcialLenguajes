@@ -95,17 +95,17 @@ sqrt(16)
 
 ---
 
-## 📌 Compilación y ejecución
+## Compilación y ejecución
 ```bash
 bison -d calc.y
 flex calc.l
-gcc -o calc calculadora.tab.c lex.yy.c  -lm -lfl
+cc -o calc calculadora.tab.c lex.yy.c  -lm -lfl
 ./calc entrada.txt
 ```
 
 ---
 
-## 📌 Ejemplo de salida
+## Ejemplo de salida
 ```
 = 3.0000
 = 1.5000
