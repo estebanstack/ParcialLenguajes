@@ -102,6 +102,8 @@ aabbc  -> ACEPTA
 abc    -> ACEPTA
 acb    -> NO ACEPTA
 cab    -> NO ACEPTA
+ab     -> ACEPTA
+bc     -> ACEPTA
 ```
 
 ---
