@@ -84,11 +84,11 @@ for cadena in pruebas:
 
 ## Ejemplo de ejecución
 ```
-a       -> ACEPTE
-Esteban123  -> ACEPTE
-C9Z     -> ACEPTE
-12Esteban    -> NO ACEPTE
-*hola    -> NO ACEPTE
+a       -> ACEPTA
+Esteban123  -> ACEPTA
+C9Z     -> ACEPTA
+12Esteban    -> NO ACEPTA
+*hola    -> NO ACEPTA
 ```
 
 ---
