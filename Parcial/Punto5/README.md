@@ -34,7 +34,7 @@ def fibonacci_seq(n):
 
 def main():
     # Leer comando desde entrada estándar
-    input_stream = InputStream(input("Ingrese comando (ej: FIBO(10)): "))
+    input_stream = InputStream(input("Ingrese comando"))
 
     lexer = FiboLexer(input_stream)
     stream = CommonTokenStream(lexer)
