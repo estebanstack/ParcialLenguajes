@@ -65,7 +65,7 @@ start = time.time()
 result = factorial(n)
 
 end = time.time()
-print(f"Fibonacci({n}) = {result}")
+print(f"Factorial({n}) = {result}")
 print(f"Tiempo en Python: {end - start:.6f} segundos")
 
 ```
