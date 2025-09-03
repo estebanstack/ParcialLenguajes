@@ -3,7 +3,6 @@
 ## Archivos del proyecto
 1. `calc.l` → analizador léxico (Flex).  
 2. `calc.y` → analizador sintáctico (Bison).  
-3. `main.c` → programa principal en C.  
 
 ---
 
@@ -35,41 +34,51 @@
 %{
 #include <stdio.h>
 #include <math.h>
-#include <stdlib.h>
 
+extern FILE *yyin;   /* para leer desde archivo */
 int yylex(void);
 void yyerror(const char *s);
 %}
+
 
 %union {
     double fval;
 }
 
-%token <fval> NUM
+%token <fval> NUMBER
 %token SQRT EOL
-%type <fval> expr
+%type  <fval> expr
 
 %%
 
-input:
+calclist:
     /* vacío */
-  | input expr EOL   { printf("= %.4f\n", $2); }
+  | calclist expr EOL   { printf("= %.4f\n", $2); }
   ;
 
 expr:
-    NUM                 { $$ = $1; }
-  | SQRT '(' expr ')'   { $$ = sqrt($3); }
+    NUMBER                 { $$ = $1; }
+  | SQRT '(' expr ')'      { $$ = sqrt($3); }
   ;
 
 %%
 
-int main(void) {
+int main(int argc, char **argv) {
+       if (argc > 1) {
+        yyin = fopen(argv[1], "r");
+        if (!yyin) {
+            perror("No se pudo abrir el archivo");
+            return 1;
+        }
+    }
+
     return yyparse();
 }
 
 void yyerror(const char *s) {
-    fprintf(stderr, "Error: %s\n", s);
+    fprintf(stderr, "error: %s\n", s);
 }
+
 ```
 
 ---
@@ -87,11 +96,10 @@ sqrt(16)
 ---
 
 ## 📌 Compilación y ejecución
-En Linux:
 ```bash
 bison -d calc.y
 flex calc.l
-gcc -o calc calc.tab.c lex.yy.c main.c -lm
+gcc -o calc calculadora.tab.c lex.yy.c  -lm -lfl
 ./calc entrada.txt
 ```
 
@@ -105,8 +113,3 @@ gcc -o calc calc.tab.c lex.yy.c main.c -lm
 ```
 
 ---
-
-## 📌 Conclusión
-- El uso combinado de **Flex** y **Bison** permite construir analizadores léxicos y sintácticos sencillos.  
-- Se implementó una calculadora básica que reconoce la función `sqrt`.  
-- Se logró analizar expresiones de entrada desde archivo y mostrar los resultados en consola.
