@@ -25,7 +25,7 @@ int factorial(int n) {
 }
 
 int main() {
-    int n = 40; 
+    int n = 20; 
     clock_t start = clock();
 
     int result = factorial(n);
@@ -59,7 +59,7 @@ def factorial(n):
     else: 
         return n*factorial(n-1)
 
-n = 40  # valor de prueba
+n = 20  # valor de prueba
 start = time.time()
 
 result = factorial(n)
@@ -78,9 +78,9 @@ python3 interpretado.py
 ---
 
 ## Resultados esperados
-Para `n = 40`:
-- **C (compilado):** en 0.000004 segundos.  
-- **Python (interpretado):** en 0.000005 segundos.  
+Para `n = 20`:
+- **C (compilado):** en 0.000005 segundos.  
+- **Python (interpretado):** en 0.000008 segundos.  
 
 Los tiempos exactos dependen de la máquina usada.
 
