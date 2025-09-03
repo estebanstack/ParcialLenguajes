@@ -76,7 +76,7 @@ FIBO(8)
 
 ## Ejemplo de salida
 ```
-Ingrese comando (ej: FIBO(10)): FIBO(8)
+Ingrese comando FIBO(8)
 0, 1, 1, 2, 3, 5, 8, 13
 ```
 
